@@ -32,6 +32,11 @@ The steps below are not detailed... yet.
 ```
 
 ## After install
+Most of the informations are  based on/taken from:
+-  http://www.2daygeek.com/
+-  http://www.tecmint.com
+-  https://itsfoss.com/
+
 Instead of using `sudo`, you can use `su` and after one time root password prompt do whatever you want at your own risk.
 
 ### Update and restart
