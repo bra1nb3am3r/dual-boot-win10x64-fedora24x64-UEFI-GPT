@@ -1,4 +1,4 @@
-# Dual boot Windows 10 x64 with Fedora 24 x64 (UEFI &amp; GPT)
+# Dual boot Windows 10 x64 with Fedora 24 x64 (UEFI & GPT)
 
 Names of some options are most probably different - I have written them down as I remembered.
 It all worked for me just fine but it does not mean it will work the same way for anyone else.
@@ -8,7 +8,7 @@ The steps below are not detailed... yet.
 
 ## Preinstall
 1. Create bootable USB using [Rufus](https://rufus.akeo.ie/downloads/).
-2. Make sure to select `GPT for UEFI`.
+2. Make sure to select `GPT for UEFI` in `Partition scheme and target system type`.
 2. Turn off `fast boot` (control panel) and `secure boot` (uefi settings)
 3. Shrink partition using Windows `Disk Management`.
 4. Windows Shift-Click `Restart`, Choose `Troubleshooting` then `UEFI USB Device`
@@ -26,18 +26,18 @@ The steps below are not detailed... yet.
   15360 MB (root)         ~ 15.00 GB
   21004 MB (home)         ~ 20.00 GB
    4096 MB (swap)         ~  4.00 GB (RAM)
--------------------------------------
+-------------------------------------------
   40960 MB (unallocated)  ~ 40.00 GB
   root + home = 36364 MB  ~ 35.50 GB
 ```
 
 ## After install
-Most of the informations are  based on/taken from:
+Most of the informations are based on/taken from websites below and credits go to:
 -  http://www.2daygeek.com/
 -  http://www.tecmint.com
 -  https://itsfoss.com/
 
-Instead of using `sudo`, you can use `su` and after one time root password prompt do whatever you want at your own risk.
+__Important:__ Instead of using `sudo`, you can use `su` and after one time root password prompt do whatever you want at your own risk.
 
 ### Update and restart
 ```
@@ -72,17 +72,42 @@ Choose verstion and install.
 -  [Oracle JRE](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html)
 -  [Oracle JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
-### Install more wallpapers
-`sudo dnf install f21-backgrounds-extras-gnome f21-backgrounds-extras-kde f21-backgrounds-extras-xfce f21-backgrounds-extras-mate f22-backgrounds-extras-gnome f22-backgrounds-extras-kde f22-backgrounds-extras-xfce f22-backgrounds-extras-mate f23-backgrounds-extras-gnome f23-backgrounds-extras-kde f23-backgrounds-extras-xfce f23-backgrounds-extras-mate f24-backgrounds-extras-gnome f24-backgrounds-extras-kde f24-backgrounds-extras-xfce f24-backgrounds-extras-mate`
-
 ### Install packages
-Some of them are not essential and some might be already installed - remove the ones you do not plan to use.
-`sudo dnf install tomahawk clementine vlc keepass guake nano vim vim-enhanced unzip gimp inkscape mc tomboy dpkg yumex-dnf gparted konqueror dolphin nautilus curl wget uget aria2 qbittorrent transmission deluge youtube-dl evolution corebird gnome-tweak-tool dconf-editor bleachbit tlp tlp-rdw redshift nautilus-dropbox wireshark aircrack-ng httpd php phpMyAdmin git nodejs npm nodejs-grunt nodejs-grunt-cli python ruby rubygems android-tools usbutils system-config-firewall p7zip p7zip-plugins unrar cabextract lzip brasero`
+Some of them are not essential and some might be already installed - remove the ones you do not plan to use - those are the ones of my choice.
 
-### Install media codecs
+#### Text editors
+`sudo dnf install nano vim vim-enhanced`
+#### Multimedia
+`sudo dnf install tomahawk clementine vlc`
+#### File explorers
+`sudo dns install konqueror dolphin nautilus mc`
+#### Archive formats
+`sudo dnf install unzip p7zip p7zip-plugins unrar cabextract lzip`
+#### Graphic editors
+`sudo dnf install gimp inkscape`
+#### Various downloading tools
+`sudo dnf install curl wget uget aria2 qbittorrent transmission deluge youtube-dl`
+#### Utils
+`sudo dnf install guake tomboy evolution corebird brasero`
+#### System related tools
+`sudo dnf install dpkg yumex-dnf gparted gnome-tweak-tool dconf-editor bleachbit tlp tlp-rdw redshift nautilus-dropbox  system-config-firewall usbutils`
+#### Development and penetration
+`sudo dnf install wireshark aircrack-ng httpd php phpMyAdmin git nodejs npm nodejs-grunt nodejs-grunt-cli python ruby rubygems android-tools`
+#### More wallpapers
+`sudo dnf install f21-backgrounds-extras-gnome f21-backgrounds-extras-kde f21-backgrounds-extras-xfce f21-backgrounds-extras-mate f22-backgrounds-extras-gnome f22-backgrounds-extras-kde f22-backgrounds-extras-xfce f22-backgrounds-extras-mate f23-backgrounds-extras-gnome f23-backgrounds-extras-kde f23-backgrounds-extras-xfce f23-backgrounds-extras-mate f24-backgrounds-extras-gnome f24-backgrounds-extras-kde f24-backgrounds-extras-xfce f24-backgrounds-extras-mate`
+#### Media codecs
 `sudo dnf install gstreamer-plugins-bad gstreamer-plugins-bad-free-extras gstreamer-plugins-bad-nonfree gstreamer-plugins-ugly gstreamer-ffmpeg gstreamer1-libav gstreamer1-plugins-bad-free-extras gstreamer1-plugins-bad-freeworld gstreamer1-plugins-base-tools gstreamer1-plugins-good-extras gstreamer1-plugins-ugly gstreamer1-plugins-bad-free gstreamer1-plugins-good gstreamer1-plugins-base gstreamer1 ffmpeg`
 
 __Update and reboot.__
+
+#### Keepass (passwords manager) & translation (optional)
+`sudo dnf install keepass`
+Download & extract zipped translation
+```
+cd ~/Pobrane
+su
+cp ./Polish.lngx /usr/lib/keepass
+```
 
 ### Check if there are any original packages - choose RPM packages and install.
 -  [Adobe Flash Player](https://get.adobe.com/pl/flashplayer/)
@@ -179,25 +204,38 @@ select the `Allow file to run as a program` and close the window. Double-click t
 
 #### KDE Desktop
 `sudo dnf install @kde-desktop`
-
 #### MATE Desktop
 `sudo dnf install @mate-desktop`
-
 #### CINNAMON Desktop
 `sudo dnf install @cinnamon-desktop`
-
 #### XFCE Desktop
 `sudo dnf install @xfce-desktop`
-
 #### LXDE Desktop
 `sudo dnf install @lxde-desktop`
 
 ### Add [Gnome Extensions](https://extensions.gnome.org/)
+Those seem to be a good choice:
+-  All Windows by lyonel (lists open windows of all workspaces).
+-  Applications Menu by fmuellner (adds a category-based menu for applications).
+-  Clipboard Indicator by Tudmotu (adds a clipboard indicator to the top panel and caches clipboard history).
+-  Dash to Dock by michele_g (moves the dash out of the overview transforming it into a dock, side and bottom placement are available).
+-  Drop Down Terminal by zzrough (drop down terminal toggled by a keystroke).
+-  Extensions by petres (enable/disable easily gnome shell extensions or edit settings from a menu in the top panel).
+-  Force Quit by megh (adds a force quit button which launches xkill).
+-  Messaging Menu by sinisterstuf (all email and chat applications in one place).
+-  Places Status Indicator by fmuellner (adds a menu for quickly navigating places in the system).
+-  Removable Drive Menu by fmuellner (a status menu for accessing and unmounting removable devices).
+-  Simple Dock by optimisme (this one or Dash to Dock - not both)
+-  Sound Input & Output Device Chooser by kgshank (similar to gnome sound settings, more options).
+-  Steal My Focus by sstent (removes the 'Window is ready' notification and puts the window immediately into focus instead).
+-  TaskBar by zpydr (displays icons of running applications on the top panel or alternatively on a new bottom panel).
+-  Time Tracker by jsnjack
+-  Turn off Display by simonthechipmunk (adds a button to the status menu to turn off the screen).
 
 ### Add online accounts
-`Show Applications (Menu) –> Settings–> Online Accounts.``
+`Show Applications (Menu) – Settings – Online Accounts.`
 
-### Clean it up
+### Clean up
 ```
 sudo dnf autoremove
 sudo dnf clean all
@@ -216,15 +254,7 @@ timedatectl
 timedatectl set-local-rtc 1
 ```
 
-### Some more...
-
-#### Keepass translation (optional)
-Download & extract
-```
-cd ~/Pobrane
-su
-cp ./Polish.lngx /usr/lib/keepass
-```
+### More...
 
 #### Set Static IP address
 Open and edit your network configuration file called enp0s3 or eth0 (or sth. similar)
@@ -276,4 +306,3 @@ systemctl status  sshd
 ```
 Disable Root login: edit `/etc/ssh/sshd_config` and set `PermitRootLogin` to `no`.  
 Restart the SSH service: `systemctl restart sshd`.
-
