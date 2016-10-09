@@ -1,4 +1,5 @@
 # Dual boot Windows 10 x64 with Fedora 24 x64 (UEFI & GPT)
+
 Names of some options are most probably different - I have written them down as I remembered.
 It all worked for me just fine but it does not mean it will work the same way for anyone else.
 I take no responsibility for any damages and loses.
@@ -79,9 +80,9 @@ Some of them are not essential and some might be already installed - remove the 
 #### Multimedia
 `sudo dnf install tomahawk clementine vlc`
 #### File explorers
-`sudo dns install konqueror dolphin nautilus mc`
+`sudo dns install konqueror dolphin nautilus mc nemo`
 #### Archive formats
-`sudo dnf install unzip p7zip p7zip-plugins unrar cabextract lzip`
+`sudo dnf install zip unzip p7zip p7zip-plugins unrar cabextract lzip`
 #### Graphic editors
 `sudo dnf install gimp inkscape`
 #### Various downloading tools
@@ -100,12 +101,11 @@ Some of them are not essential and some might be already installed - remove the 
 __Update and reboot.__
 
 #### Keepass (passwords manager) & translation (optional)
-`sudo dnf install keepass`  
-Download & extract zipped translation
 ```
+sudo dnf install keepass
 cd ~/Pobrane
-su
-cp ./Polish.lngx /usr/lib/keepass
+wget http://downloads.sourceforge.net/project/keepass/Translations%202.x/2.32/KeePass-2.32-Polish.zip
+sudo unzip ./KeePass-2.32-Polish.zip Polish.lngx -d /usr/lib/keepass
 ```
 
 ### Check if there are any original packages - choose RPM packages and install.
