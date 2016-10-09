@@ -101,7 +101,7 @@ Some of them are not essential and some might be already installed - remove the 
 __Update and reboot.__
 
 #### Keepass (passwords manager) & translation (optional)
-`sudo dnf install keepass`
+`sudo dnf install keepass`  
 Download & extract zipped translation
 ```
 cd ~/Pobrane
