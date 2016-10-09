@@ -53,7 +53,7 @@ hostnamectl set-hostname “<hostname>”
 ```
 
 ### Assign higher privileges to user (optional, IMHO it is better not to do it)
-`usermod -a -G wheel <username>``
+`usermod -a -G wheel <username>`
 
 ### Install development tools and libraries
 ```
