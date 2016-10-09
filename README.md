@@ -1,5 +1,4 @@
 # Dual boot Windows 10 x64 with Fedora 24 x64 (UEFI & GPT)
-
 Names of some options are most probably different - I have written them down as I remembered.
 It all worked for me just fine but it does not mean it will work the same way for anyone else.
 I take no responsibility for any damages and loses.
@@ -128,6 +127,18 @@ cp ./Polish.lngx /usr/lib/keepass
 -  [Line](https://line.me/en/download)
 -  [Android SDK](https://developer.android.com/studio/index.html)
 
+### Install NetBeans 8.2
+__NetBeans 8.2 Installer for Linux/English (en):__ netbeans-8.2-linux.sh (213.5 MB)  
+__SHA-256:__ 0442d4eaae5334f91070438512b2e8abf98fc84f07a9352afbc2c4ad437d306c  
+After the download completes, you need to make the installer file executable and run it.
+```
+su
+cd /home/<username>/Pobrane
+wget http://download.netbeans.org/netbeans/8.2/final/bundles/netbeans-8.2-linux.sh
+chmod +x netbeans-8.2-linux.sh
+./netbeans-8.2-linux.sh
+```
+
 ### Install Viber
 `sudo dnf install http://download.cdn.viber.com/desktop/Linux/viber.rpm`
 
@@ -177,10 +188,8 @@ cd /android-sdk-linux/tools
 ```
 
 ### Install Wine
-`sudo dnf install wine`
-
-If standard installation of `wine` failed, try the one belowe (in my case both failed).
-
+`sudo dnf install wine`  
+If standard installation of `wine` failed, try the one belowe (in my case both failed).  
 ```
 su
 dnf install libX11-devel freetype-devel zlib-devel libxcb-devel
@@ -192,10 +201,8 @@ dnf install winehq-devel
 ### Install antivirus
 
 #### ESET NOD32 (failed in my case)
-wget http://download.eset.com/download/unix/eav/eset_nod32av_64bit_pl.linux
-
-If you are installing from a downloaded file, right-click the file, `Properties - Permissions`,
-select the `Allow file to run as a program` and close the window. Double-click the file to start the installer.
+`wget http://download.eset.com/download/unix/eav/eset_nod32av_64bit_pl.linux`  
+If you are installing from a downloaded file, right-click the file, `Properties - Permissions`, select the `Allow file to run as a program` and close the window. Double-click the file to start the installer.
 
 #### ClamAV
 `sudo dnf install clamav`
@@ -257,13 +264,13 @@ timedatectl set-local-rtc 1
 ### More...
 
 #### Set Static IP address
-Open and edit your network configuration file called enp0s3 or eth0 (or sth. similar)
-under `/etc/sysconfig/network-scripts/` directory. Open this file with the editor of your choice with root privileges.
+Open and edit your network configuration file called enp0s3 (or sth. similar) under `/etc/sysconfig/network-scripts/` directory.
+Open this file with the editor of your choice with root privileges.
 ```
 su
 atom /etc/sysconfig/network-scripts/ifcfg-enp0s3
 ```
-Sample Output:
+Sample output:
 ```
 HWADDR=08:00:27:33:01:2D
 TYPE=Ethernet
